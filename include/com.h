@@ -2,6 +2,8 @@
 #define COM_H
 
 #include <iostream>
+#include <curl.h>
+#include <string>
 
 class Com{
 
