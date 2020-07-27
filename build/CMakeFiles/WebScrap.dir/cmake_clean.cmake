@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/WebScrap.dir/main.cpp.obj"
+  "CMakeFiles/WebScrap.dir/src/main.cpp.obj"
   "WebScrap.exe"
   "WebScrap.exe.manifest"
   "WebScrap.pdb"

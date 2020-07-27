@@ -6,7 +6,11 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/maxime.bellot/Documents/WebScrap/src/main.cpp
+../include/com.h
 iostream
+-
+
+C:/Users/maxime.bellot/Documents/WebScrap/src/com.cpp
+com.h
 -
 

@@ -75,27 +75,27 @@ include CMakeFiles/WebScrap.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/WebScrap.dir/flags.make
 
-CMakeFiles/WebScrap.dir/main.cpp.obj: CMakeFiles/WebScrap.dir/flags.make
-CMakeFiles/WebScrap.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\maxime.bellot\Documents\WebScrap\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/WebScrap.dir/main.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\WebScrap.dir\main.cpp.obj -c C:\Users\maxime.bellot\Documents\WebScrap\main.cpp
+CMakeFiles/WebScrap.dir/src/main.cpp.obj: CMakeFiles/WebScrap.dir/flags.make
+CMakeFiles/WebScrap.dir/src/main.cpp.obj: ../src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\maxime.bellot\Documents\WebScrap\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/WebScrap.dir/src/main.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\WebScrap.dir\src\main.cpp.obj -c C:\Users\maxime.bellot\Documents\WebScrap\src\main.cpp
 
-CMakeFiles/WebScrap.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/WebScrap.dir/main.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\maxime.bellot\Documents\WebScrap\main.cpp > CMakeFiles\WebScrap.dir\main.cpp.i
+CMakeFiles/WebScrap.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/WebScrap.dir/src/main.cpp.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\maxime.bellot\Documents\WebScrap\src\main.cpp > CMakeFiles\WebScrap.dir\src\main.cpp.i
 
-CMakeFiles/WebScrap.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/WebScrap.dir/main.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\maxime.bellot\Documents\WebScrap\main.cpp -o CMakeFiles\WebScrap.dir\main.cpp.s
+CMakeFiles/WebScrap.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/WebScrap.dir/src/main.cpp.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\maxime.bellot\Documents\WebScrap\src\main.cpp -o CMakeFiles\WebScrap.dir\src\main.cpp.s
 
 # Object files for target WebScrap
 WebScrap_OBJECTS = \
-"CMakeFiles/WebScrap.dir/main.cpp.obj"
+"CMakeFiles/WebScrap.dir/src/main.cpp.obj"
 
 # External object files for target WebScrap
 WebScrap_EXTERNAL_OBJECTS =
 
-WebScrap.exe: CMakeFiles/WebScrap.dir/main.cpp.obj
+WebScrap.exe: CMakeFiles/WebScrap.dir/src/main.cpp.obj
 WebScrap.exe: CMakeFiles/WebScrap.dir/build.make
 WebScrap.exe: CMakeFiles/WebScrap.dir/linklibs.rsp
 WebScrap.exe: CMakeFiles/WebScrap.dir/objects1.rsp

@@ -219,6 +219,13 @@
 				},
 				{
 					"directoryIndex" : 0,
+					"id" : "MyExec::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MyExec-Debug-8509906700484fbc593c.json",
+					"name" : "MyExec",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "Nightly::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-Nightly-Debug-2e2e7b63e21e4033585a.json",
 					"name" : "Nightly",
@@ -286,13 +293,6 @@
 					"jsonFile" : "target-NightlyUpdate-Debug-1598d588369da174b8b8.json",
 					"name" : "NightlyUpdate",
 					"projectIndex" : 0
-				},
-				{
-					"directoryIndex" : 0,
-					"id" : "WebScrap::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-WebScrap-Debug-b6068879206f2cdb39ed.json",
-					"name" : "WebScrap",
-					"projectIndex" : 0
 				}
 			]
 		}
@@ -306,6 +306,6 @@
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 0
+		"minor" : 1
 	}
 }
