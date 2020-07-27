@@ -1,7 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/WebScrap.dir/WebScrap.cpp.obj"
-  "libWebScrap.a"
-  "libWebScrap.pdb"
+  "CMakeFiles/WebScrap.dir/main.cpp.obj"
+  "WebScrap.exe"
+  "WebScrap.exe.manifest"
+  "WebScrap.pdb"
+  "libWebScrap.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/maxime.bellot/Documents/WebScrap/WebScrap.cpp" "C:/Users/maxime.bellot/Documents/WebScrap/build/CMakeFiles/WebScrap.dir/WebScrap.cpp.obj"
+  "C:/Users/maxime.bellot/Documents/WebScrap/main.cpp" "C:/Users/maxime.bellot/Documents/WebScrap/build/CMakeFiles/WebScrap.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

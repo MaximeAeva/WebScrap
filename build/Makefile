@@ -538,32 +538,32 @@ WebScrap/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\WebScrap.dir\build.make CMakeFiles/WebScrap.dir/build
 .PHONY : WebScrap/fast
 
-WebScrap.obj: WebScrap.cpp.obj
+main.obj: main.cpp.obj
 
-.PHONY : WebScrap.obj
+.PHONY : main.obj
 
 # target to build an object file
-WebScrap.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\WebScrap.dir\build.make CMakeFiles/WebScrap.dir/WebScrap.cpp.obj
-.PHONY : WebScrap.cpp.obj
+main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\WebScrap.dir\build.make CMakeFiles/WebScrap.dir/main.cpp.obj
+.PHONY : main.cpp.obj
 
-WebScrap.i: WebScrap.cpp.i
+main.i: main.cpp.i
 
-.PHONY : WebScrap.i
+.PHONY : main.i
 
 # target to preprocess a source file
-WebScrap.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\WebScrap.dir\build.make CMakeFiles/WebScrap.dir/WebScrap.cpp.i
-.PHONY : WebScrap.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\WebScrap.dir\build.make CMakeFiles/WebScrap.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-WebScrap.s: WebScrap.cpp.s
+main.s: main.cpp.s
 
-.PHONY : WebScrap.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-WebScrap.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\WebScrap.dir\build.make CMakeFiles/WebScrap.dir/WebScrap.cpp.s
-.PHONY : WebScrap.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\WebScrap.dir\build.make CMakeFiles/WebScrap.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -605,9 +605,9 @@ help:
 	@echo ... NightlyTest
 	@echo ... NightlyUpdate
 	@echo ... WebScrap
-	@echo ... WebScrap.obj
-	@echo ... WebScrap.i
-	@echo ... WebScrap.s
+	@echo ... main.obj
+	@echo ... main.i
+	@echo ... main.s
 .PHONY : help
 
 
