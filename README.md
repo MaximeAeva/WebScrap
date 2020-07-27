@@ -1,2 +1,0 @@
-# WebScrap
-Web scrap module
