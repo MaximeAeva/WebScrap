@@ -1,3 +1,0 @@
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -E rm -f CMakeFiles\MyExec.dir/objects.a
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ar.exe cr CMakeFiles\MyExec.dir/objects.a @CMakeFiles\MyExec.dir\objects1.rsp
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE -g -Wl,--whole-archive CMakeFiles\MyExec.dir/objects.a -Wl,--no-whole-archive -o MyExec.exe -Wl,--out-implib,libMyExec.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\MyExec.dir\linklibs.rsp

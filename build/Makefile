@@ -526,17 +526,17 @@ ContinuousCoverage/fast:
 .PHONY : ContinuousCoverage/fast
 
 #=============================================================================
-# Target rules for targets named MyExec
+# Target rules for targets named WebScrap
 
 # Build rule for target.
-MyExec: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 MyExec
-.PHONY : MyExec
+WebScrap: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 WebScrap
+.PHONY : WebScrap
 
 # fast build rule for target.
-MyExec/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyExec.dir\build.make CMakeFiles/MyExec.dir/build
-.PHONY : MyExec/fast
+WebScrap/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\WebScrap.dir\build.make CMakeFiles/WebScrap.dir/build
+.PHONY : WebScrap/fast
 
 src/com.obj: src/com.cpp.obj
 
@@ -544,7 +544,7 @@ src/com.obj: src/com.cpp.obj
 
 # target to build an object file
 src/com.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyExec.dir\build.make CMakeFiles/MyExec.dir/src/com.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\WebScrap.dir\build.make CMakeFiles/WebScrap.dir/src/com.cpp.obj
 .PHONY : src/com.cpp.obj
 
 src/com.i: src/com.cpp.i
@@ -553,7 +553,7 @@ src/com.i: src/com.cpp.i
 
 # target to preprocess a source file
 src/com.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyExec.dir\build.make CMakeFiles/MyExec.dir/src/com.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\WebScrap.dir\build.make CMakeFiles/WebScrap.dir/src/com.cpp.i
 .PHONY : src/com.cpp.i
 
 src/com.s: src/com.cpp.s
@@ -562,7 +562,7 @@ src/com.s: src/com.cpp.s
 
 # target to generate assembly for a file
 src/com.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyExec.dir\build.make CMakeFiles/MyExec.dir/src/com.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\WebScrap.dir\build.make CMakeFiles/WebScrap.dir/src/com.cpp.s
 .PHONY : src/com.cpp.s
 
 src/main.obj: src/main.cpp.obj
@@ -571,7 +571,7 @@ src/main.obj: src/main.cpp.obj
 
 # target to build an object file
 src/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyExec.dir\build.make CMakeFiles/MyExec.dir/src/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\WebScrap.dir\build.make CMakeFiles/WebScrap.dir/src/main.cpp.obj
 .PHONY : src/main.cpp.obj
 
 src/main.i: src/main.cpp.i
@@ -580,7 +580,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyExec.dir\build.make CMakeFiles/MyExec.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\WebScrap.dir\build.make CMakeFiles/WebScrap.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -589,7 +589,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyExec.dir\build.make CMakeFiles/MyExec.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\WebScrap.dir\build.make CMakeFiles/WebScrap.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -631,7 +631,7 @@ help:
 	@echo ... NightlySubmit
 	@echo ... NightlyTest
 	@echo ... NightlyUpdate
-	@echo ... MyExec
+	@echo ... WebScrap
 	@echo ... src/com.obj
 	@echo ... src/com.i
 	@echo ... src/com.s

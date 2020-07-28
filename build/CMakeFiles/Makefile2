@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = C:\Users\maxime.bellot\Documents\WebScrap\build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/MyExec.dir/all
+all: CMakeFiles/WebScrap.dir/all
 
 .PHONY : all
 
@@ -109,7 +109,7 @@ clean: CMakeFiles/ContinuousConfigure.dir/clean
 clean: CMakeFiles/ContinuousBuild.dir/clean
 clean: CMakeFiles/ContinuousTest.dir/clean
 clean: CMakeFiles/ContinuousCoverage.dir/clean
-clean: CMakeFiles/MyExec.dir/clean
+clean: CMakeFiles/WebScrap.dir/clean
 
 .PHONY : clean
 
@@ -870,31 +870,31 @@ CMakeFiles/ContinuousCoverage.dir/clean:
 .PHONY : CMakeFiles/ContinuousCoverage.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/MyExec.dir
+# Target rules for target CMakeFiles/WebScrap.dir
 
 # All Build rule for target.
-CMakeFiles/MyExec.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyExec.dir\build.make CMakeFiles/MyExec.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyExec.dir\build.make CMakeFiles/MyExec.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\maxime.bellot\Documents\WebScrap\build\CMakeFiles --progress-num=1,2,3 "Built target MyExec"
-.PHONY : CMakeFiles/MyExec.dir/all
+CMakeFiles/WebScrap.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\WebScrap.dir\build.make CMakeFiles/WebScrap.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\WebScrap.dir\build.make CMakeFiles/WebScrap.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\maxime.bellot\Documents\WebScrap\build\CMakeFiles --progress-num=1,2,3 "Built target WebScrap"
+.PHONY : CMakeFiles/WebScrap.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/MyExec.dir/rule: cmake_check_build_system
+CMakeFiles/WebScrap.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\maxime.bellot\Documents\WebScrap\build\CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/MyExec.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/WebScrap.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\maxime.bellot\Documents\WebScrap\build\CMakeFiles 0
-.PHONY : CMakeFiles/MyExec.dir/rule
+.PHONY : CMakeFiles/WebScrap.dir/rule
 
 # Convenience name for target.
-MyExec: CMakeFiles/MyExec.dir/rule
+WebScrap: CMakeFiles/WebScrap.dir/rule
 
-.PHONY : MyExec
+.PHONY : WebScrap
 
 # clean rule for target.
-CMakeFiles/MyExec.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyExec.dir\build.make CMakeFiles/MyExec.dir/clean
-.PHONY : CMakeFiles/MyExec.dir/clean
+CMakeFiles/WebScrap.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\WebScrap.dir\build.make CMakeFiles/WebScrap.dir/clean
+.PHONY : CMakeFiles/WebScrap.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

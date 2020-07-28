@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/WebScrap.dir/src/com.cpp.obj"
   "CMakeFiles/WebScrap.dir/src/main.cpp.obj"
   "WebScrap.exe"
   "WebScrap.exe.manifest"
