@@ -1,5 +1,5 @@
 #include <iostream>
-#include <com.h>
+#include <com.hpp>
 
 
 int main(int, char**) {
