@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <curl.h>
 
 class Com{
 
@@ -10,6 +11,8 @@ class Com{
         Com();
         ~Com();
 
+    private:
+    
 };
 
 #endif

@@ -24,16 +24,16 @@ else
 CXXFLAGS = -w -Wall -Werror -s -O2
 endif
 
-IFLAGS =		-I./inc -I./lib
+IFLAGS =	-I./inc -I./lib
 
 #libs
-LFLAGS =	
+LFLAGS =	-lcurl $(wildcard lib/*.h)
 
 
 all :		 	$(EXE)
 
 $(EXE) :        $(PROJ_OBJ)
-	@$(CXX) $(CXXFLAGS) $(IFLAGS) -o $@ $(PROJ_OBJ) $(LFLAGS)
+	@$(CXX) $(CXXFLAGS) $(IFLAGS) -o $@ $(PROJ_OBJ) $(LFLAGS) lib/libcurl.a lib/libcurl.dll.a
 	@echo "Compiling "$(EXE)
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp 
