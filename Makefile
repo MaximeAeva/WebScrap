@@ -25,9 +25,9 @@ CXXFLAGS = -w -Wall -Werror -s -O2
 endif
 
 #libs
-IFLAGS =	-I/C:/mylibs/curl-7.71.1-win64-mingw/include -I/inc
-LFLAGS =	-L/C:/mylibs/curl-7.71.1-win64-mingw/lib
-LDLIBS = 	-lcurl
+IFLAGS =	-I./inc
+LFLAGS =	-L./lib
+LDLIBS = 	-lcurl -lcurl.dll
 
 
 all :		 	$(EXE)
@@ -38,7 +38,7 @@ $(EXE) :    $(PROJ_OBJ)
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp 
 	@$(shell mkdir obj >/dev/null 2>&1)
-	@$(CXX) -c -o $@ $< $(CXXFLAGS)
+	@$(CXX) -c -o $@ $< $(IFLAGS) $(CXXFLAGS) $(LFLAGS) $(LDLIBS) 
 	@echo "Compiling" $<
 
 clean :
