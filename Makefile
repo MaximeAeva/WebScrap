@@ -9,7 +9,7 @@ OBJ_DIR =       obj
 
 # sources
 PROJ_SRC_LIST = main.cpp \
-				com.cpp
+				com.cpp 
 
 # objects
 PROJ_OBJ_LIST = $(PROJ_SRC_LIST:.cpp=.o)
@@ -32,19 +32,23 @@ LDLIBS = 	-lcurl -lcurl.dll
 
 all :		 	$(EXE)
 
+
+#Creating .exe with .o
 $(EXE) :    $(PROJ_OBJ)
-	@$(CXX) -o $@  $(IFLAGS) $(CXXFLAGS) $(LFLAGS) $(LDLIBS) $(PROJ_OBJ)
+	@$(CXX) -o $@  $(PROJ_OBJ)
 	@echo "Compiling "$(EXE)
 
+
+# Creating .o with .cpp and libs
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp 
-	@$(shell mkdir obj >/dev/null 2>&1)
-	@$(CXX) -c -o $@ $< $(IFLAGS) $(CXXFLAGS) $(LFLAGS) $(LDLIBS) 
+	@$(shell mkdir obj)
+	@$(CXX) -c -o $@ $< $(IFLAGS) $(CXXFLAGS) $(LFLAGS) $(LDLIBS)
 	@echo "Compiling" $<
 
 clean :
 	@echo "Cleaning Object"
 	@$(RM) $(PROJ_OBJ)
-	@$(shell rmdir obj >/dev/null 2>&1)
+	@$(shell rmdir /S /Q obj)
 
 fclean :	    clean
 	@echo "Removing Binary"
