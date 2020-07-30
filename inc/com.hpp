@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include <curl.h>
+#include <curl/curl.h>
 
 class Com{
 

@@ -24,21 +24,21 @@ else
 CXXFLAGS = -w -Wall -Werror -s -O2
 endif
 
-IFLAGS =	-I./inc -I./lib
-
 #libs
-LFLAGS =	-lcurl $(wildcard lib/*.h)
+IFLAGS =	-I/C:/mylibs/curl-7.71.1-win64-mingw/include -I/inc
+LFLAGS =	-L/C:/mylibs/curl-7.71.1-win64-mingw/lib
+LDLIBS = 	-lcurl
 
 
 all :		 	$(EXE)
 
-$(EXE) :        $(PROJ_OBJ)
-	@$(CXX) $(CXXFLAGS) $(IFLAGS) -o $@ $(PROJ_OBJ) $(LFLAGS) lib/libcurl.a lib/libcurl.dll.a
+$(EXE) :    $(PROJ_OBJ)
+	@$(CXX) -o $@  $(IFLAGS) $(CXXFLAGS) $(LFLAGS) $(LDLIBS) $(PROJ_OBJ)
 	@echo "Compiling "$(EXE)
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp 
 	@$(shell mkdir obj >/dev/null 2>&1)
-	@$(CXX) $(CXXFLAGS) $(IFLAGS) -c -o $@ $<
+	@$(CXX) -c -o $@ $< $(CXXFLAGS)
 	@echo "Compiling" $<
 
 clean :
