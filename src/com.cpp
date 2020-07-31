@@ -28,9 +28,9 @@ Com::Com()
     curl_easy_cleanup(curl);
     }
  
-    curl_global_cleanup();
+    
 
-    std::cout << "hello" << std::endl;
+    std::cout << "Created" << std::endl;
 }
 
 Com::~Com()
@@ -39,7 +39,7 @@ Com::~Com()
      * @brief       Deleter
      * 
      */
-
-    std::cout << "bye" << std::endl;
+    curl_global_cleanup();
+    std::cout << "Cleaned" << std::endl;
 }
 

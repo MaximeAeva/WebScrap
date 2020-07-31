@@ -35,14 +35,14 @@ all :		 	$(EXE)
 
 #Creating .exe with .o
 $(EXE) :    $(PROJ_OBJ)
-	@$(CXX) -o $@  $(PROJ_OBJ)
+	@$(CXX) -o $@ $^ $(LFLAGS) $(LDLIBS) $(CXXFLAGS)
 	@echo "Compiling "$(EXE)
 
 
 # Creating .o with .cpp and libs
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp 
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp  
 	@$(shell mkdir obj)
-	@$(CXX) -c -o $@ $< $(IFLAGS) $(CXXFLAGS) $(LFLAGS) $(LDLIBS)
+	@$(CXX) -c -o $@ $< $(IFLAGS) $(CXXFLAGS)
 	@echo "Compiling" $<
 
 clean :
