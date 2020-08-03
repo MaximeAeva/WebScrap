@@ -3,6 +3,10 @@
 
 
 int main(int, char**) {
-    std::cout << "Hello, world!" << std::endl;
-    Com *test = new Com("google.com");
+    std::string adress;
+    std::cout << "Adress : ";
+    std::cin >> adress;
+    std::cout << std::endl;
+    Com *test = new Com(adress);
+    test->~Com();
 }

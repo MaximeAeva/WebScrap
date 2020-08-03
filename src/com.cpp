@@ -6,17 +6,22 @@ Com::Com(std::string aStringName)
      * @brief       Constructor
      * 
      */
+
+    int n = aStringName.length();
+    char charVersion[n + 1]; 
+    strcpy(charVersion, aStringName.c_str());
+
     CURL *curl;
     CURLcode res;
-
-    std::cout << "On dirait que jusque là ça va !" << std::endl;
  
     curl_global_init(CURL_GLOBAL_DEFAULT);
     
     curl = curl_easy_init();
     if(curl) 
     {
-        curl_easy_setopt(curl, CURLOPT_URL, aStringName);
+        curl_easy_setopt(curl, CURLOPT_URL, charVersion);
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
         /* Perform the request, res will get the return code */ 
         res = curl_easy_perform(curl);
         /* Check for errors */ 
