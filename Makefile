@@ -1,5 +1,5 @@
 EXE  =		WebScrap
-DEBUG = 	yes
+DEBUG =  	yes
 CXX =		g++
 
 # dir
@@ -27,7 +27,7 @@ endif
 #libs
 IFLAGS =	-I./inc
 LFLAGS =	-L./lib
-LDLIBS = 	-lcurl -lcurl.dll
+LDLIBS = 	-lcurl 
 
 
 all :		 	$(EXE)
@@ -35,7 +35,7 @@ all :		 	$(EXE)
 
 #Creating .exe with .o
 $(EXE) :    $(PROJ_OBJ)
-	@$(CXX) -o $@ $^ $(LFLAGS) $(LDLIBS) $(CXXFLAGS)
+	@$(CXX) -MD -o $@ $^ $(LFLAGS) $(LDLIBS) $(CXXFLAGS)
 	@echo "Compiling "$(EXE)
 
 
@@ -47,12 +47,11 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp
 
 clean :
 	@echo "Cleaning Object"
-	@$(RM) $(PROJ_OBJ)
 	@$(shell rmdir /S /Q obj)
 
 fclean :	    clean
 	@echo "Removing Binary"
-	$(RM) $(EXE)
+	@$(shell rm $(EXE))
 
 re :		    fclean all
 
