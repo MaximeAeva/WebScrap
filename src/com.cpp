@@ -34,7 +34,7 @@ Com::Com(std::string aStringName)
 Com::~Com()
 {
     /**
-     * @brief       Deleter
+     * @brief       Destructor
      * 
      */
     curl_easy_cleanup(curl);
@@ -45,6 +45,10 @@ Com::~Com()
 
 size_t Com::WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)
 {
+    /**
+     * @brief       Save HTML file in a struct
+     * 
+     */
     size_t realsize = size * nmemb;
     struct MemoryStruct *mem = (struct MemoryStruct *)userp;
     
@@ -66,11 +70,19 @@ size_t Com::WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void 
 
 int Com::getSize()
 {
+    /**
+     * @brief       Get object size
+     * 
+     */
     return file.size;
 }
 
 char* Com::getContent()
 {
+    /**
+     * @brief       Get content HTML
+     * 
+     */
     return file.memory;
 }
 

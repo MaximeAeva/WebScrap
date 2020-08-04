@@ -10,7 +10,10 @@
 #include <rapidxml/rapidxml.hpp>
 
 class Nav {
-
+    /**
+     * @brief       A class to navigate the soup
+     * 
+     */
     public:
         Nav(char* someXMLfile);
         ~Nav();

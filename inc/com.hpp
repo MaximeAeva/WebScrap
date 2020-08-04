@@ -15,7 +15,10 @@ struct MemoryStruct {
 };
 
 class Com{
-
+  /**
+   * @brief     Established a communication with the desired adress and get HTML
+   * 
+   */
     public:
         Com(std::string aStringName);
         ~Com();

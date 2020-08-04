@@ -2,12 +2,16 @@
 
 Nav::Nav(char* someXMLfile)
 {
+    /**
+     * @brief       Create a boat to sail this XML soup 
+     * 
+     */
     rapidxml::xml_document<> doc;
 	rapidxml::xml_node<> * root_node;
-    std::vector<char> buffer(*someXMLfile);
+    std::vector<char> buffer(*someXMLfile);// Here are the pointer's mermaids ...
     std::cout << someXMLfile << std::endl;
-    buffer.push_back('\0');
-	doc.parse<0>(&buffer[0]);
+    buffer.push_back('\0');//There... an iceberg
+	doc.parse<0>(&buffer[0]);//Please, read https://fr.wikipedia.org/wiki/Titanic to know the end 
 
 	root_node = doc.first_node("pre"); 
 

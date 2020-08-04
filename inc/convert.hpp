@@ -10,7 +10,10 @@
 #include <tidy/tidybuffio.h>
 
 class Conv {
-
+    /**
+     * @brief       A class to convert pure HTML to XML 
+     * 
+     */
     public:
         Conv(const char *someHTMLString);
         ~Conv();

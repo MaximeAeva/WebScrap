@@ -2,6 +2,10 @@
 
 Conv::Conv(const char *someHTMLString)
 {
+    /**
+     * @brief       Create an XML object 
+     * 
+     */
     output = {0};
     errbuf = {0};
     rc = -1;
@@ -27,6 +31,10 @@ Conv::Conv(const char *someHTMLString)
 
 Conv::~Conv()
 {
+    /**
+     * @brief       Construct a new tidy Buf Free object
+     * 
+     */
     tidyBufFree( &output );
     tidyBufFree( &errbuf );
     tidyRelease( tdoc );
@@ -35,6 +43,10 @@ Conv::~Conv()
 
 char* Conv::getContent()
 {
+    /**
+     * @brief       Get the XML content
+     * 
+     */
     if ( rc >= 0 )
         {
             return reinterpret_cast<char *>(output.bp);
@@ -46,6 +58,10 @@ char* Conv::getContent()
 
 void Conv::getDiagnostic()
 {
+    /**
+     * @brief       Get diagnoses regarding the HTML file build
+     * 
+     */
     if ( rc >= 0 )
         {
             if ( rc > 0 )
