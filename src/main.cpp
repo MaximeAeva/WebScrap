@@ -1,20 +1,14 @@
 #include <iostream>
 #include <com.hpp>
-
-std::string uselessFunction()
-{
-    std::string s;
-    std::cout << "Adress : ";
-    std::cin >> s;
-    std::cout << std::endl;
-    return s;
-}
+#include <useless.hpp>
+#include <convert.hpp>
 
 int main(int, char**) 
 {
-    std::string adress = uselessFunction();
+    std::string adress = getAdress();
     Com *test = new Com(adress);
-    std::cout << test->file.memory << std::endl;
+    std::cout << test->file.size << std::endl;
+    html2xml(test->file.memory);
     test->~Com();
 }
 

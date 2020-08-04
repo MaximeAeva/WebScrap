@@ -9,7 +9,9 @@ OBJ_DIR =       obj
 
 # sources
 PROJ_SRC_LIST = main.cpp \
-				com.cpp 
+				com.cpp \
+				useless.cpp \
+				convert.cpp
 
 # objects
 PROJ_OBJ_LIST = $(PROJ_SRC_LIST:.cpp=.o)
@@ -19,15 +21,15 @@ PROJ_SRC =		$(addprefix $(SRC_DIR)/, $(PROJ_SRC_LIST))
 PROJ_OBJ =		$(addprefix $(OBJ_DIR)/, $(PROJ_OBJ_LIST))
 
 ifeq ($(DEBUG),yes)
-CXXFLAGS = -Wall -Wextra -ansi -pedantic -g -Weffc++
+CXXFLAGS = -Wall -Wextra -ansi -pedantic -g -Weffc++ 
 else
 CXXFLAGS = -w -Wall -Werror -s -O2
 endif
 
 #libs
-IFLAGS =	-I./inc
-LFLAGS =	-L./lib
-LDLIBS = 	-lcurl 
+IFLAGS =	-I./inc/
+LFLAGS =	-L./lib/
+LDLIBS = 	-lcurl -llibtidy
 
 
 all :		 	$(EXE)
@@ -35,14 +37,14 @@ all :		 	$(EXE)
 
 #Creating .exe with .o
 $(EXE) :    $(PROJ_OBJ)
-	@$(CXX) -MD -o $@ $^ $(LFLAGS) $(LDLIBS) $(CXXFLAGS)
+	@$(CXX) $(CXXFLAGS) -o $@ $^ $(LFLAGS) $(LDLIBS) 
 	@echo "Compiling "$(EXE)
 
 
 # Creating .o with .cpp and libs
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp  
 	@$(shell mkdir obj)
-	@$(CXX) -c -o $@ $< $(IFLAGS) $(CXXFLAGS)
+	@$(CXX) $(CXXFLAGS) -c -o $@ $< $(IFLAGS) 
 	@echo "Compiling" $<
 
 clean :
