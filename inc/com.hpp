@@ -19,11 +19,14 @@ class Com{
     public:
         Com(std::string aStringName);
         ~Com();
-        struct MemoryStruct file;
+        int getSize();
+        char* getContent();
 
     private:
+        struct MemoryStruct file;
         CURL *curl;
         static size_t WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp);
+
 };
 
 #endif

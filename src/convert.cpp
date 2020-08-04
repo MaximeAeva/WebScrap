@@ -1,20 +1,20 @@
 #include <convert.hpp>
 
-int html2xml(const char *input)
+Conv::Conv(const char *someHTMLString)
 {
-    TidyBuffer output = {0};
-    TidyBuffer errbuf = {0};
-    int rc = -1;
+    output = {0};
+    errbuf = {0};
+    rc = -1;
     Bool ok;
 
-    TidyDoc tdoc = tidyCreate();                     // Initialize "document"
+    tdoc = tidyCreate();                     // Initialize "document"
     printf("Tidying . . .\n");
 
-    ok = tidyOptSetBool( tdoc, TidyXmlOut, yes );  // Convert to XHTML
+    ok = tidyOptSetBool( tdoc, TidyXhtmlOut, yes );  // Convert to XML
     if ( ok )
         rc = tidySetErrorBuffer( tdoc, &errbuf );      // Capture diagnostics
     if ( rc >= 0 )
-        rc = tidyParseString( tdoc, input );           // Parse the input
+        rc = tidyParseString( tdoc, someHTMLString );           // Parse the input
     if ( rc >= 0 )
         rc = tidyCleanAndRepair( tdoc );               // Tidy it up!
     if ( rc >= 0 )
@@ -22,19 +22,35 @@ int html2xml(const char *input)
     if ( rc > 1 )                                    // If error, force output.
         rc = ( tidyOptSetBool(tdoc, TidyForceOutput, yes) ? rc : -1 );
     if ( rc >= 0 )
-        rc = tidySaveBuffer( tdoc, &output );          // Pretty Print
+        rc = tidySaveBuffer( tdoc, &output );          // Pretty Print    
+}
 
-    if ( rc >= 0 )
-    {
-        if ( rc > 0 )
-        printf( "\nDiagnostics:\n\n%s", errbuf.bp );
-        printf( "\nResult:\n\n%s", output.bp );
-    }
-    else
-        printf( "A severe error (%d) occurred.\n", rc );
-
+Conv::~Conv()
+{
     tidyBufFree( &output );
     tidyBufFree( &errbuf );
     tidyRelease( tdoc );
-    return rc;
+    std::cout << "Cleaned CONV" << std::endl;
+}
+
+char* Conv::getContent()
+{
+    if ( rc >= 0 )
+        {
+            return reinterpret_cast<char *>(output.bp);
+        }
+        else
+            printf( "A severe error (%d) occurred.\n", rc );
+            return 0;
+}
+
+void Conv::getDiagnostic()
+{
+    if ( rc >= 0 )
+        {
+            if ( rc > 0 )
+            std::cout << "Diagnostics:\n\n" << errbuf.bp << std::endl;
+        }
+        else
+            std::cout << "A severe error (%d) occurred.\n" << rc << std::endl;
 }

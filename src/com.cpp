@@ -40,7 +40,7 @@ Com::~Com()
     curl_easy_cleanup(curl);
     free(file.memory);
     curl_global_cleanup();
-    std::cout << "Cleaned" << std::endl;
+    std::cout << "Cleaned COM" << std::endl;
 }
 
 size_t Com::WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)
@@ -62,5 +62,15 @@ size_t Com::WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void 
     mem->memory[mem->size] = 0;
     
     return realsize;
+}
+
+int Com::getSize()
+{
+    return file.size;
+}
+
+char* Com::getContent()
+{
+    return file.memory;
 }
 

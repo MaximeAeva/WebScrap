@@ -11,7 +11,8 @@ OBJ_DIR =       obj
 PROJ_SRC_LIST = main.cpp \
 				com.cpp \
 				useless.cpp \
-				convert.cpp
+				convert.cpp \
+				nav.cpp
 
 # objects
 PROJ_OBJ_LIST = $(PROJ_SRC_LIST:.cpp=.o)
@@ -27,7 +28,7 @@ CXXFLAGS = -w -Wall -Werror -s -O2
 endif
 
 #libs
-IFLAGS =	-I./inc/
+IFLAGS =	-I./inc/ 
 LFLAGS =	-L./lib/
 LDLIBS = 	-lcurl -llibtidy
 
