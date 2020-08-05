@@ -6,6 +6,7 @@ Com::Com(std::string aStringName)
      * @brief       Constructor
      * 
      */
+    std::cout << "Curling";
     int n = aStringName.length();
     char charVersion[n + 1]; 
     strcpy(charVersion, aStringName.c_str());
@@ -13,22 +14,20 @@ Com::Com(std::string aStringName)
     CURLcode res;
     file.memory = (char *) malloc(1); 
     file.size = 0;
- 
-    curl_global_init(CURL_GLOBAL_DEFAULT);
-    
+    curl_global_init(CURL_GLOBAL_DEFAULT);std::cout << " .";
     curl = curl_easy_init();
     if(curl) 
     {
-        curl_easy_setopt(curl, CURLOPT_URL, charVersion);
-        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);
-        curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&file);
-        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
-        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L); 
+        curl_easy_setopt(curl, CURLOPT_URL, charVersion);std::cout << " .";
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);std::cout << " .";
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&file);std::cout << " .";
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);std::cout << " .";
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);std::cout << " .";
         res = curl_easy_perform(curl);
         if(res != CURLE_OK)
-        std::cout << curl_easy_strerror(res) << std::endl;        
+        std::cout << curl_easy_strerror(res) << std::endl;std::cout << " .";        
     }
- 
+    std::cout << std::endl;
 }
 
 Com::~Com()

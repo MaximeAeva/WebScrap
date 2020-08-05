@@ -16,7 +16,7 @@ struct MemoryStruct {
 
 class Com{
   /**
-   * @brief     Established a communication with the desired adress and get HTML
+   * @brief     Establish a communication with the desired adress and get HTML
    * 
    */
     public:

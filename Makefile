@@ -22,7 +22,7 @@ PROJ_SRC =		$(addprefix $(SRC_DIR)/, $(PROJ_SRC_LIST))
 PROJ_OBJ =		$(addprefix $(OBJ_DIR)/, $(PROJ_OBJ_LIST))
 
 ifeq ($(DEBUG),yes)
-CXXFLAGS = -Wall -Wextra -ansi -pedantic -g -Weffc++ 
+CXXFLAGS = -Wall -Wextra -ansi -pedantic -g #-Weffc++ 
 else
 CXXFLAGS = -w -Wall -Werror -s -O2
 endif

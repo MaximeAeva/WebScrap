@@ -18,6 +18,9 @@ class Nav {
         Nav(char* someXMLfile);
         ~Nav();
 
+    private:
+        void walk(const rapidxml::xml_node<>* node, int indent = 0);
+
 };
 
 
