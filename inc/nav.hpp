@@ -12,7 +12,7 @@
 class Node {
     
     public:
-        Node(std::string id, std::string name, Node *parent);
+        Node(std::string id, std::string name, int parent);
         ~Node();
         void appendAttr(std::string attr, std::string val);//add an attribute
         void appendData(std::string data);//add data
@@ -27,7 +27,7 @@ class Node {
         std::vector<std::string> attr; 
         std::vector<std::string> val; 
         std::string data;
-        Node *parent;
+        int parent;
 };
 
 class MagicalWoodStick
@@ -39,13 +39,13 @@ class MagicalWoodStick
     public:
         MagicalWoodStick();
         ~MagicalWoodStick();
+        std::vector<Node> content;
         void appendNode(std::string id, std::string name);//add a node to the list
         void closeNode();//close a node (this node can't be parent anymore)
         void skeleton();//What a bones amount
-        Node* getLast();//Return the current opened Node
+        int getLast();//Return the current opened Node
     private:
-        std::vector<Node> content;
-        std::vector<Node*> depList;
+        std::vector<int> depList;
 };
 
 class Nav {

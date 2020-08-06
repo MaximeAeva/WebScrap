@@ -10,7 +10,7 @@ std::string catchThis(size_t s, char *name)
     return buff;
 }
 
-Node::Node(std::string id, std::string name, Node *parent = NULL)
+Node::Node(std::string id, std::string name, int parent = -1)
 {
     /**
      * @brief       Lets split this page
@@ -45,8 +45,7 @@ void Node::appendData(std::string data)
 
 Node::~Node()
 {
-    delete this->parent;
-    this->parent = NULL;
+
 }
 
 MagicalWoodStick::MagicalWoodStick()
@@ -61,27 +60,24 @@ void MagicalWoodStick::appendNode(std::string id, std::string name)
     {
         Node n(id, name);
         this->content.push_back(n);
-        this->depList.push_back(&n);
+        this->depList.push_back(-1);
         
     }
     else 
     {
         Node n(id, name, this->depList.back());
         this->content.push_back(n);
-        this->depList.push_back(&n);
-        std::cout << this->depList.back()->getName();
+        this->depList.push_back(this->content.size()-1);
     }
 }
 
-Node *MagicalWoodStick::getLast()
+int MagicalWoodStick::getLast()
 {
     return this->depList.back();
 }
 
 void MagicalWoodStick::closeNode()
  {
-     delete this->depList.back();
-     this->depList.back() = NULL;
      this->depList.pop_back();
  }
 
@@ -154,13 +150,13 @@ void Nav::walk(const rapidxml::xml_node<>* node, MagicalWoodStick *wand, int ind
         case rapidxml::node_element:
             {
                 wand->appendNode(ind, catchThis(node->name_size(), node->name()));
+                if(mode) std::cout << "Append " << wand->content[wand->getLast()].getName();
                 if(mode) std::printf("<%.*s", node->name_size(), node->name());
                 for(const rapidxml::xml_attribute<>* a = node->first_attribute()
                     ; a
                     ; a = a->next_attribute()
                 ) {
-                    wand->getLast()->appendAttr(catchThis(a->name_size(), a->name()), catchThis(a->value_size(), a->value()));
-                    std::cout << wand->getLast();
+                    wand->content[wand->getLast()].appendAttr(catchThis(a->name_size(), a->name()), catchThis(a->value_size(), a->value()));
                     if(mode) std::printf(" %.*s", a->name_size(), a->name());
                     if(mode) std::printf("='%.*s'", a->value_size(), a->value());
                 }
@@ -172,13 +168,14 @@ void Nav::walk(const rapidxml::xml_node<>* node, MagicalWoodStick *wand, int ind
                 ) {
                     walk(n, wand, indent+1, mode);
                 }
+                if(mode) std::cout << "Close " << wand->content[wand->getLast()].getName();
                 wand->closeNode();
                 if(mode) std::printf("%s</%.*s>\n", ind.c_str(), node->name_size(), node->name());
             }
             break;
 
         case rapidxml::node_data:
-            wand->getLast()->appendData(catchThis(node->value_size(), node->value()));
+            wand->content[wand->getLast()].appendData(catchThis(node->value_size(), node->value()));
             if(mode) std::printf("DATA:[%.*s]\n", node->value_size(), node->value());
             break;
 

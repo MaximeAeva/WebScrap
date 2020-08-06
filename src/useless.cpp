@@ -14,18 +14,8 @@ void choice(std::string name, std::vector<bool> &opt)
     char var;
     std::cout << name <<" ? (y/n) : ";
     std::cin >> var;
-    switch(var)
-    {
-        case 'y':
-            opt.push_back(1);
-        break;
-        case 'n':
-            opt.push_back(0);
-        break;
-        default:
-            opt.push_back(0);
-        break;
-    }
+    if(var=='y') opt.push_back(1);
+    else opt.push_back(0);
 }
 
 std::vector<bool> options()
