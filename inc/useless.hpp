@@ -13,7 +13,7 @@
 std::string getAdress();
 
 /**
- * @brief  Select options (diagnostic, verbose)
+ * @brief  Select options (diagnostic, verbose, HTML)
  * 
  * @return std::vector<bool> 
  */

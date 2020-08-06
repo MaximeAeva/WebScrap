@@ -9,6 +9,27 @@
 
 #include <rapidxml/rapidxml.hpp>
 
+class Node {
+    
+    public:
+        Node(std::string id, std::string name, Node *parent);
+        ~Node();
+        void appendAttr(std::string attr, std::string val);//add an attribute
+        void appendData(std::string data);//add data
+        std::string getId() {return this->id;};
+        std::string getName() {return this->name;};
+        std::vector<std::string> getAttr() {return this->attr;};
+        std::vector<std::string> getVal() {return this->val;};
+
+    private:
+        std::string id; 
+        std::string name; 
+        std::vector<std::string> attr; 
+        std::vector<std::string> val; 
+        std::string data;
+        Node *parent;
+};
+
 class MagicalWoodStick
 {
     /**
@@ -16,20 +37,15 @@ class MagicalWoodStick
      * 
      */
     public:
-        MagicalWoodStick(int id, size_t i, char* const & n, std::vector<char*> const & a,
-                        std::vector<char*> const & av, char* const & d):nodeSize_(i),
-                                                        nodeName_(n),
-                                                        nodeAttributes_(a),
-                                                        nodeAttributesValues_(av){}
-        size_t nodeSize() const{return nodeSize_;}
-        std::string const & label() const{return nodeName_;}
+        MagicalWoodStick();
+        ~MagicalWoodStick();
+        void appendNode(std::string id, std::string name);//add a node to the list
+        void closeNode();//close a node (this node can't be parent anymore)
+        void skeleton();//What a bones amount
+        Node* getLast();//Return the current opened Node
     private:
-        int id;
-        size_t nodeSize_;
-        char* nodeName_;
-        std::vector<char*> nodeAttributes_;
-        std::vector<char*> nodeAttributesValues_;
- 
+        std::vector<Node> content;
+        std::vector<Node*> depList;
 };
 
 class Nav {
@@ -38,11 +54,12 @@ class Nav {
      * 
      */
     public:
-        Nav(char* someXMLfile, bool mode = 0);
+        Nav(char* someXMLfile, MagicalWoodStick *wand, bool mode = 0);
         ~Nav();
 
     private:
-        void walk(const rapidxml::xml_node<>* node, int indent = 0, bool mode = 0);
+        rapidxml::xml_node<> * root_node;
+        void walk(const rapidxml::xml_node<>* node, MagicalWoodStick *wand, int indent = 0, bool mode = 0);
 
 };
 

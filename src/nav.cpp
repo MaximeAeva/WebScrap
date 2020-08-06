@@ -1,13 +1,116 @@
 #include <nav.hpp>
 
-Nav::Nav(char* someXMLfile, bool mode)
+std::string catchThis(size_t s, char *name)
+{
+    std::string buff;
+    for(int i = 0; i<s; i++)
+    {
+        buff=buff+(name[i]);
+    }
+    return buff;
+}
+
+Node::Node(std::string id, std::string name, Node *parent = NULL)
+{
+    /**
+     * @brief       Lets split this page
+     *                      _ _ _ _      
+     *              _ - - '   //    ' - - _ 
+     *          , '          //            ' ,
+     *        /             //               |
+     *                     //
+     *                    //
+     *                   // 
+     *                  //
+     *                 //  
+     */
+    this->id = id;
+    this->name = name;
+    this->attr = {};
+    this->val = {};
+    this->data = "";
+    this->parent = parent;
+}
+
+void Node::appendAttr(std::string attr, std::string val)
+{
+    this->attr.push_back(attr);
+    this->val.push_back(val);
+}
+
+void Node::appendData(std::string data)
+{
+    this->data = data;
+}
+
+Node::~Node()
+{
+    delete this->parent;
+    this->parent = NULL;
+}
+
+MagicalWoodStick::MagicalWoodStick()
+{
+    this->content = {};
+    this->depList = {};
+}
+
+void MagicalWoodStick::appendNode(std::string id, std::string name)
+{
+    if(this->depList.empty()) 
+    {
+        Node n(id, name);
+        this->content.push_back(n);
+        this->depList.push_back(&n);
+        
+    }
+    else 
+    {
+        Node n(id, name, this->depList.back());
+        this->content.push_back(n);
+        this->depList.push_back(&n);
+        std::cout << this->depList.back()->getName();
+    }
+}
+
+Node *MagicalWoodStick::getLast()
+{
+    return this->depList.back();
+}
+
+void MagicalWoodStick::closeNode()
+ {
+     delete this->depList.back();
+     this->depList.back() = NULL;
+     this->depList.pop_back();
+ }
+
+void MagicalWoodStick::skeleton()
+{
+    int end = this->content.size();
+    for(int i = 0; i < end; i++)
+    {
+        std::cout << this->content[i].getName();
+        std::cout << " ";
+    }
+}
+
+MagicalWoodStick::~MagicalWoodStick()
+{
+    for(int i = this->content.size(); i >=0 ; i--)
+    {
+        this->content[i].~Node();
+        this->content.pop_back();
+    }
+}
+
+Nav::Nav(char* someXMLfile, MagicalWoodStick *wand, bool mode)
 {
     /**
      * @brief       Create a boat to sail this XML soup 
      * 
      */
     rapidxml::xml_document<> doc;
-	rapidxml::xml_node<> * root_node;
     int i = 0;
     std::vector<char> buffer;
     std::cout << "Parsing";
@@ -26,19 +129,21 @@ Nav::Nav(char* someXMLfile, bool mode)
 
 	root_node = doc.first_node(); 
 
-    std::cout << std::endl << "node: " << root_node;
-    //But look ... If you die, you can't die again ;) ! 
-    walk(root_node, 0, mode);
+    if(mode) std::cout << std::endl << "node: " << root_node;
+    //But look ... If you die, you can't die again ;) !
+
+    walk(root_node, wand, 0, mode);
     
     std::cout << std::endl;
 }
 
 Nav::~Nav()
 {
-
+    delete this->root_node;
+    this->root_node = NULL;
 }
 
-void Nav::walk(const rapidxml::xml_node<>* node, int indent, bool mode)
+void Nav::walk(const rapidxml::xml_node<>* node, MagicalWoodStick *wand, int indent, bool mode)
 {
     const std::string ind = std::string(indent * 4, ' ');
     if(mode) std::cout << ind.c_str() << std::endl;
@@ -48,11 +153,14 @@ void Nav::walk(const rapidxml::xml_node<>* node, int indent, bool mode)
     {
         case rapidxml::node_element:
             {
+                wand->appendNode(ind, catchThis(node->name_size(), node->name()));
                 if(mode) std::printf("<%.*s", node->name_size(), node->name());
                 for(const rapidxml::xml_attribute<>* a = node->first_attribute()
                     ; a
                     ; a = a->next_attribute()
                 ) {
+                    wand->getLast()->appendAttr(catchThis(a->name_size(), a->name()), catchThis(a->value_size(), a->value()));
+                    std::cout << wand->getLast();
                     if(mode) std::printf(" %.*s", a->name_size(), a->name());
                     if(mode) std::printf("='%.*s'", a->value_size(), a->value());
                 }
@@ -62,13 +170,15 @@ void Nav::walk(const rapidxml::xml_node<>* node, int indent, bool mode)
                     ; n
                     ; n = n->next_sibling()
                 ) {
-                    walk(n, indent+1, mode);
+                    walk(n, wand, indent+1, mode);
                 }
+                wand->closeNode();
                 if(mode) std::printf("%s</%.*s>\n", ind.c_str(), node->name_size(), node->name());
             }
             break;
 
         case rapidxml::node_data:
+            wand->getLast()->appendData(catchThis(node->value_size(), node->value()));
             if(mode) std::printf("DATA:[%.*s]\n", node->value_size(), node->value());
             break;
 
@@ -77,3 +187,6 @@ void Nav::walk(const rapidxml::xml_node<>* node, int indent, bool mode)
             break;
     }
 }
+
+
+
