@@ -86,8 +86,14 @@ void MagicalWoodStick::skeleton()
     int end = this->content.size();
     for(int i = 0; i < end; i++)
     {
+        int father = this->content[i].getParent();
+        while(father >= 0)
+        {
+            std::cout << "      ";
+            father = this->content[father].getParent();
+        }
         std::cout << this->content[i].getName();
-        std::cout << " ";
+        std::cout << std::endl;
     }
 }
 

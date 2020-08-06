@@ -20,6 +20,7 @@ class Node {
         std::string getName() {return this->name;};
         std::vector<std::string> getAttr() {return this->attr;};
         std::vector<std::string> getVal() {return this->val;};
+        int getParent(){return parent;};
 
     private:
         std::string id; 
