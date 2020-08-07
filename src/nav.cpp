@@ -168,7 +168,7 @@ void Nav::walk(const rapidxml::xml_node<>* node, MagicalWoodStick *wand, int ind
                     ; a
                     ; a = a->next_attribute()
                 ) {
-                    wand->content[wand->getLast()].appendAttr(catchThis(a->name_size(), a->name()), catchThis(a->value_size(), a->value()));
+                    //wand->content[wand->getLast()].appendAttr(catchThis(a->name_size(), a->name()), catchThis(a->value_size(), a->value()));
                     if(mode) std::printf(" %.*s", a->name_size(), a->name());
                     if(mode) std::printf("='%.*s'", a->value_size(), a->value());
                 }
