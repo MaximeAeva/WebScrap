@@ -87,7 +87,7 @@ void MagicalWoodStick::skeleton()
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     for(int i = 0; i < end; i++)
     {
-        int color = 1;
+        int color = 0;
         int father = this->content[i].getParent();
         while(father >= 0)
         {
@@ -164,16 +164,16 @@ void Nav::walk(const rapidxml::xml_node<>* node, MagicalWoodStick *wand, int ind
             {
                 wand->appendNode(ind, catchThis(node->name_size(), node->name()));
                 if(mode) std::cout << "Append " << wand->content[wand->getLast()].getName();
-                if(mode) std::printf("<%.*s", node->name_size(), node->name());
+                if(mode) std::cout << "<" << catchThis(node->name_size(), node->name());
                 for(const rapidxml::xml_attribute<>* a = node->first_attribute()
                     ; a
                     ; a = a->next_attribute()
                 ) {
                     //wand->content[wand->getLast()].appendAttr(catchThis(a->name_size(), a->name()), catchThis(a->value_size(), a->value()));
-                    if(mode) std::printf(" %.*s", a->name_size(), a->name());
-                    if(mode) std::printf("='%.*s'", a->value_size(), a->value());
+                    if(mode) std::cout << " " << catchThis(a->name_size(), a->name());
+                    if(mode) std::cout << "='" << catchThis(a->value_size(), a->value()) << "'";
                 }
-                if(mode) std::printf(">\n");
+                if(mode) std::cout << ">" << std::endl;
 
                 for(const rapidxml::xml_node<>* n = node->first_node()
                     ; n
@@ -183,17 +183,17 @@ void Nav::walk(const rapidxml::xml_node<>* node, MagicalWoodStick *wand, int ind
                 }
                 if(mode) std::cout << "Close " << wand->content[wand->getLast()].getName();
                 wand->closeNode();
-                if(mode) std::printf("%s</%.*s>\n", ind.c_str(), node->name_size(), node->name());
+                if(mode) std::cout << ind.c_str() <<"</" << wand->content[wand->getLast()].getName() << ">" << std::endl;
             }
             break;
 
         case rapidxml::node_data:
             wand->content[wand->getLast()].appendData(catchThis(node->value_size(), node->value()));
-            if(mode) std::printf("DATA:[%.*s]\n", node->value_size(), node->value());
+            if(mode) std::cout << "DATA:[" << catchThis(node->value_size(), node->value()) << "]" << std::endl;
             break;
 
         default:
-            if(mode) std::printf("NODE-TYPE:%d\n", t);
+            if(mode) std::cout << "NODE-TYPE: " << t << std::endl;
             break;
     }
 }
