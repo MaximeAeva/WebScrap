@@ -95,7 +95,7 @@ void MagicalWoodStick::skeleton()
             father = this->content[father].getParent();
             color++;
         }
-        SetConsoleTextAttribute(hConsole, color);
+        SetConsoleTextAttribute(hConsole, color%15+1);
         std::cout << this->content[i].getName();
         std::cout << std::endl;
     }
@@ -126,8 +126,9 @@ Nav::Nav(char* someXMLfile, MagicalWoodStick *wand, int weight, bool mode)
     {
         buffer.push_back(*(someXMLfile+i));// Here are the pointer's mermaids ...
         i++;
-        if(i/weight) progressBar(100*i/weight, 0);
+        if(!(i%1000)) progressBar(100*i/weight, 0);
     }
+    progressBar(100, 0);
     buffer.push_back('\0');
     //There... an iceberg
     enum {

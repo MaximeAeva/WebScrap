@@ -56,7 +56,7 @@ size_t Com::WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void 
      */
     size_t realsize = size * nmemb;
     struct MemoryStruct *mem = (struct MemoryStruct *)userp;
-    progressBar(30);
+    progressBar(30, 0);
     char *ptr = (char*) realloc(mem->memory, mem->size + realsize + 1);
     if(ptr == NULL) 
     {
@@ -64,12 +64,12 @@ size_t Com::WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void 
         printf("not enough memory (realloc returned NULL)\n");
         return 0;
     }
-    progressBar(40);
+    progressBar(40, 0);
     mem->memory = ptr;
     memcpy(&(mem->memory[mem->size]), contents, realsize);
     mem->size += realsize;
     mem->memory[mem->size] = 0;
-    progressBar(50);
+    progressBar(50, 0);
     return realsize;
 }
 
