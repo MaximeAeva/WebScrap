@@ -8,6 +8,7 @@
 
 #include <tidy/tidy.h>
 #include <tidy/tidybuffio.h>
+#include <useless.hpp>
 
 class Conv {
     /**
@@ -19,6 +20,7 @@ class Conv {
         ~Conv();
         char* getContent();
         void getDiagnostic();
+        int getSize() {return this->output.size;};
 
     private:
         TidyBuffer output;

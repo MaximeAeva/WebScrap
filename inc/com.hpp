@@ -7,6 +7,7 @@
 #include <cstdlib>
 
 #include <curl/curl.h>
+#include <useless.hpp>
 
 
 struct MemoryStruct {

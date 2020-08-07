@@ -84,17 +84,22 @@ void MagicalWoodStick::closeNode()
 void MagicalWoodStick::skeleton()
 {
     int end = this->content.size();
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     for(int i = 0; i < end; i++)
     {
+        int color = 1;
         int father = this->content[i].getParent();
         while(father >= 0)
         {
             std::cout << "      ";
             father = this->content[father].getParent();
+            color++;
         }
+        SetConsoleTextAttribute(hConsole, color);
         std::cout << this->content[i].getName();
         std::cout << std::endl;
     }
+    SetConsoleTextAttribute(hConsole, 15);
 }
 
 MagicalWoodStick::~MagicalWoodStick()
@@ -106,7 +111,7 @@ MagicalWoodStick::~MagicalWoodStick()
     }
 }
 
-Nav::Nav(char* someXMLfile, MagicalWoodStick *wand, bool mode)
+Nav::Nav(char* someXMLfile, MagicalWoodStick *wand, int weight, bool mode)
 {
     /**
      * @brief       Create a boat to sail this XML soup 
@@ -115,12 +120,13 @@ Nav::Nav(char* someXMLfile, MagicalWoodStick *wand, bool mode)
     rapidxml::xml_document<> doc;
     int i = 0;
     std::vector<char> buffer;
-    std::cout << "Parsing";
+    std::cout << "Parsing" << std::endl;
+    progressBar(0, 0);
     while((*(someXMLfile+i)) != '\0')
     {
         buffer.push_back(*(someXMLfile+i));// Here are the pointer's mermaids ...
-        if (!(i%1000)) {std::cout << " .";}
         i++;
+        if(i/weight) progressBar(100*i/weight, 0);
     }
     buffer.push_back('\0');
     //There... an iceberg

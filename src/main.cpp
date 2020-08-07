@@ -9,12 +9,12 @@ int main(int, char**)
     //Declaration part
     std::string adress = getAdress();//Just let you think you are in charge of something
     std::vector<bool> opt = options();
-    
+
     //Do you know the way ??
     Com html(adress);//Scream until someone answer
     Conv xml(html.getContent());//Try to decode a shell sound
     MagicalWoodStick wand;
-    Nav navigate(xml.getContent(), &wand, opt[1]);//Totally nervous breakdown caused by pointer's world
+    Nav navigate(xml.getContent(), &wand, xml.getSize(), opt[1]);//Totally nervous breakdown caused by pointer's world
     
     //Please, be efficient and do not talk a lot
     wand.skeleton();

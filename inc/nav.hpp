@@ -6,8 +6,10 @@
 #include <vector>
 #include <cstdio>
 #include <cerrno>
+#include <windows.h>
 
 #include <rapidxml/rapidxml.hpp>
+#include <useless.hpp>
 
 class Node {
     
@@ -55,7 +57,7 @@ class Nav {
      * 
      */
     public:
-        Nav(char* someXMLfile, MagicalWoodStick *wand, bool mode = 0);
+        Nav(char* someXMLfile, MagicalWoodStick *wand, int weight, bool mode = 0);
         ~Nav();
 
     private:

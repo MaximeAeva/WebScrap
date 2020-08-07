@@ -6,27 +6,28 @@ Conv::Conv(const char *someHTMLString)
      * @brief       Create an XML object 
      * 
      */
-    std::cout << "Tidying";
+    std::cout << "Tidying" << std::endl;
+    progressBar(0);
     output = {0};
     errbuf = {0};
     rc = -1;
     Bool ok;
 
     tdoc = tidyCreate();                     // Initialize "document"
-
-    ok = tidyOptSetBool( tdoc, TidyXmlOut, yes );std::cout << " .";  // Convert to XML
+    progressBar(20);
+    ok = tidyOptSetBool( tdoc, TidyXmlOut, yes );progressBar(30);  // Convert to XML
     if ( ok )
-        rc = tidySetErrorBuffer( tdoc, &errbuf );std::cout << " .";      // Capture diagnostics
+        rc = tidySetErrorBuffer( tdoc, &errbuf );progressBar(40); // Capture diagnostics    
     if ( rc >= 0 )
-        rc = tidyParseString( tdoc, someHTMLString );std::cout << " .";           // Parse the input
+        rc = tidyParseString( tdoc, someHTMLString );progressBar(50);           // Parse the input
     if ( rc >= 0 )
-        rc = tidyCleanAndRepair( tdoc );std::cout << " .";               // Tidy it up!
+        rc = tidyCleanAndRepair( tdoc );progressBar(60);               // Tidy it up!
     if ( rc >= 0 )
-        rc = tidyRunDiagnostics( tdoc );std::cout << " .";               // Kvetch
+        rc = tidyRunDiagnostics( tdoc );progressBar(70);               // Kvetch
     if ( rc > 1 )                                    // If error, force output.
-        rc = ( tidyOptSetBool(tdoc, TidyForceOutput, yes) ? rc : -1 );std::cout << " .";
+        rc = ( tidyOptSetBool(tdoc, TidyForceOutput, yes) ? rc : -1 );progressBar(80);
     if ( rc >= 0 )
-        rc = tidySaveBuffer( tdoc, &output );std::cout << " .";// Pretty Print  
+        rc = tidySaveBuffer( tdoc, &output );progressBar(100);// Pretty Print  
     std::cout << std::endl;    
 }
 

@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <windows.h>
+#include <unistd.h>
 
 /**
  * @brief Get the Adress object
@@ -18,6 +20,14 @@ std::string getAdress();
  * @return std::vector<bool> 
  */
 std::vector<bool> options();
+
+/**
+ * @brief Progress bar are beautiful :D
+ * 
+ * @param percent 
+ * @param wait 
+ */
+void progressBar(int percent, int wait = 100000);
 
 
 #endif
