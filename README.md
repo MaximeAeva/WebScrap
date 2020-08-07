@@ -34,7 +34,7 @@ At your own risks ...
 
 ## Built With
 
-* [cURL](https://curl.haxx.se/) - Build a get request
+* [cURL](https://curl.haxx.se/) - Built a get request
 * [Tidy](http://www.html-tidy.org/) - Shift to XML
 * [RapidXML](http://rapidxml.sourceforge.net/index.htm) - Navigate through the XML
 

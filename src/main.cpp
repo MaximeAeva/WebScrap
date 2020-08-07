@@ -18,6 +18,7 @@ int main(int, char**)
     
     //Please, be efficient and do not talk a lot
     wand.skeleton();
+    wand.rawData();
     if(opt[2]) html.getContent();
     if(opt[0]) xml.getDiagnostic();//See it's not that bad (if you manage to get here)
     

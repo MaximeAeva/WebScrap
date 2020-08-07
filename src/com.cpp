@@ -21,6 +21,8 @@ Com::Com(std::string aStringName)
     progressBar(20);
     if(curl) 
     {
+        std::string useragent= "curl/7.39.0";
+        curl_easy_setopt(curl,CURLOPT_USERAGENT, useragent);
         curl_easy_setopt(curl, CURLOPT_URL, charVersion);
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);
         progressBar(60);

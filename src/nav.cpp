@@ -48,12 +48,22 @@ Node::~Node()
 
 }
 
+/**
+ * @brief Construct a new Magical Wood Stick:: Magical Wood Stick object
+ * 
+ */
 MagicalWoodStick::MagicalWoodStick()
 {
     this->content = {};
     this->depList = {};
 }
 
+/**
+ * @brief append a Node
+ * 
+ * @param id 
+ * @param name 
+ */
 void MagicalWoodStick::appendNode(std::string id, std::string name)
 {
     if(this->depList.empty()) 
@@ -102,6 +112,27 @@ void MagicalWoodStick::skeleton()
     SetConsoleTextAttribute(hConsole, 15);
 }
 
+void MagicalWoodStick::rawData()
+{
+    int end = this->content.size();
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    for(int i = 0; i < end; i++)
+    {
+        int color = 0;
+        int father = this->content[i].getParent();
+        while(father >= 0)
+        {
+            std::cout << "      ";
+            father = this->content[father].getParent();
+            color++;
+        }
+        SetConsoleTextAttribute(hConsole, color%15+1);
+        std::cout << this->content[i].getData();
+        std::cout << std::endl;
+    }
+    SetConsoleTextAttribute(hConsole, 15);
+}
+
 MagicalWoodStick::~MagicalWoodStick()
 {
     for(int i = this->content.size(); i >=0 ; i--)
@@ -111,12 +142,16 @@ MagicalWoodStick::~MagicalWoodStick()
     }
 }
 
+/**
+ * @brief Construct a new Nav:: Nav object
+ * 
+ * @param someXMLfile 
+ * @param wand 
+ * @param weight 
+ * @param mode 
+ */
 Nav::Nav(char* someXMLfile, MagicalWoodStick *wand, int weight, bool mode)
 {
-    /**
-     * @brief       Create a boat to sail this XML soup 
-     * 
-     */
     rapidxml::xml_document<> doc;
     int i = 0;
     std::vector<char> buffer;

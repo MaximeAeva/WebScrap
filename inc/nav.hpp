@@ -20,6 +20,7 @@ class Node {
         void appendData(std::string data);//add data
         std::string getId() {return this->id;};
         std::string getName() {return this->name;};
+        std::string getData() {return this->data;};
         std::vector<std::string> getAttr() {return this->attr;};
         std::vector<std::string> getVal() {return this->val;};
         int getParent(){return parent;};
@@ -46,6 +47,7 @@ class MagicalWoodStick
         void appendNode(std::string id, std::string name);//add a node to the list
         void closeNode();//close a node (this node can't be parent anymore)
         void skeleton();//What a bones amount
+        void rawData();
         int getLast();//Return the current opened Node
     private:
         std::vector<int> depList;
