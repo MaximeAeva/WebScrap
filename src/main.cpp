@@ -17,8 +17,8 @@ int main(int, char**)
     Nav navigate(xml.getContent(), &wand, xml.getSize(), opt[1]);//Totally nervous breakdown caused by pointer's world
     
     //Please, be efficient and do not talk a lot
-    wand.skeleton();
-    wand.rawData();
+    //wand.skeleton();
+    //wand.rawData();
     if(opt[2]) html.getContent();
     if(opt[0]) xml.getDiagnostic();//See it's not that bad (if you manage to get here)
     
