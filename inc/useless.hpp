@@ -15,7 +15,7 @@
 std::string getAdress();
 
 /**
- * @brief  Select options (diagnostic, verbose, HTML)
+ * @brief  Select options (diagnostic, verbose, HTML, Communication, Skeleton, Content)
  * 
  * @return std::vector<bool> 
  */

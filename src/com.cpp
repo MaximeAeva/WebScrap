@@ -1,6 +1,6 @@
 #include <com.hpp>
 
-Com::Com(std::string aStringName)
+Com::Com(std::string aStringName, std::vector<bool> opt)
 {
     /**
      * @brief       Constructor
@@ -19,20 +19,22 @@ Com::Com(std::string aStringName)
     curl_global_init(CURL_GLOBAL_DEFAULT);
     curl = curl_easy_init();
     progressBar(20);
+    long communication = 0L;
+    if(opt[3]) communication = 1L;
     if(curl) 
     {
         std::string useragent= "curl/7.39.0";
         curl_easy_setopt(curl,CURLOPT_USERAGENT, useragent);
         curl_easy_setopt(curl, CURLOPT_DEBUGFUNCTION, trace);
-        curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
+        curl_easy_setopt(curl, CURLOPT_VERBOSE, communication);
         curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
         curl_easy_setopt(curl, CURLOPT_URL, charVersion);
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);
         progressBar(60);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&file);
-        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
         progressBar(80);
-        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 1L);
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
         res = curl_easy_perform(curl);
         if(res != CURLE_OK)
         std::cout << curl_easy_strerror(res) << std::endl;        
@@ -154,11 +156,11 @@ void Com::dump(const char *text,
     unsigned int width=0x10;
        
     std::cout << text << "," << (long)size << "bytes (0x" << (long)size << ")" << std::endl;
+
     if(!data)
     {
         for(i=0; i<size; i+= width) {
-            std::cout << (long)i;
-        
+            fprintf(stream, "%4.4lx: ", (long)i);
             /* show hex to the left */
             for(c = 0; c < width; c++) {
             if(i+c < size)

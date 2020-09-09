@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include <cstdio>
 #include <cstdlib>
 #include <windows.h>
@@ -22,7 +23,7 @@ class Com{
    * 
    */
     public:
-        Com(std::string aStringName);
+        Com(std::string aStringName, std::vector<bool> opt);
         ~Com();
         int getSize();
         char* getContent();

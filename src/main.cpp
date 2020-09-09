@@ -11,14 +11,14 @@ int main(int, char**)
     std::vector<bool> opt = options();
 
     //Do you know the way ??
-    Com html(adress);//Scream until someone answer
+    Com html(adress, opt);//Scream until someone answer
     Conv xml(html.getContent());//Try to decode a shell sound
     MagicalWoodStick wand;
     Nav navigate(xml.getContent(), &wand, xml.getSize(), opt[1]);//Totally nervous breakdown caused by pointer's world
     
     //Please, be efficient and do not talk a lot
-    //wand.skeleton();
-    //wand.rawData();
+    if(opt[4]) wand.skeleton();
+    if(opt[5]) wand.rawData();
     if(opt[2]) html.getContent();
     if(opt[0]) xml.getDiagnostic();//See it's not that bad (if you manage to get here)
     

@@ -23,7 +23,10 @@ std::vector<bool> options()
     std::vector<bool> opt;
     choice("Diagnostic", opt);
     choice("Verbose", opt);
-    choice("HTML", opt);
+    choice("Display HTML version", opt);
+    choice("Communication", opt);
+    choice("Skeleton", opt);
+    choice("Content", opt);
     return opt;
 }
 

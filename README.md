@@ -2,12 +2,7 @@
 
 C/C++ Makefile project to display a beautiful page skeleton. See [here](https://github.com/MaximeAeva/WebScrap/blob/master/res/Result.png)
 
-   ,##.                   ,==.
- ,#    #.                 \ o ',
-#        #     _     _     \    \
-#        #    (_)   (_)    /    ; 
- `#    #'                 /   .'  
-   `##'                   "=="
+![Hey!](https://github.com/MaximeAeva/WebScrap/blob/master/res/Hello.PNG)
 
 ## Getting Started
 
